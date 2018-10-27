@@ -3,3 +3,5 @@ services;
   server:
   client:
 network:
+  default:
+    ip_range: 172.18.254.0/24
