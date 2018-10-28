@@ -11,8 +11,9 @@ namespace Client
             var delay = TimeSpan.FromSeconds(5);
             Console.WriteLine($"Waiting {delay} for the server to start...");
             Task.Delay(TimeSpan.FromSeconds(5)).Wait();
-            var serverHost = Environment.GetEnvironmentVariable("SERVER_HOST");
-            var response = new HttpClient().GetStringAsync(serverHost).Result;
+            var targetUrl = Environment.GetEnvironmentVariable("TARGET_URL");
+            Console.WriteLine($"Making request to {targetUrl}");
+            var response = new HttpClient().GetStringAsync(targetUrl).Result;
             Console.WriteLine(response);
         }
     }
