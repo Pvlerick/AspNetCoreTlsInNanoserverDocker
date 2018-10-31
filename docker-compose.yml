@@ -5,20 +5,21 @@ services:
       context: .\Server\
     hostname: server
     networks:
-      - default
+      net:
+        ipv4_address: 172.18.254.10
   client:
     build:
       context: .\Client\
     networks:
-      - default
+      net:
+        ipv4_address: 172.18.254.20
     environment:
       TARGET_URL: https://server:5000
 networks:
-  default:
+  net:
     driver: nat
     ipam:
       config:
         - subnet: 172.18.254.0/24
           aux_addresses:
-            server: 172.18.254.1
-        
+            server: 172.18.254.10

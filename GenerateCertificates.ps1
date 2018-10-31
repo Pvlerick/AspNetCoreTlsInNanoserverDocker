@@ -12,8 +12,6 @@ $rootCert  =  New-SelfSignedCertificate  `
 Export-Certificate -Type CERT -Cert $rootCert -FilePath Server\root-ca.cer
 Export-Certificate -Type CERT -Cert $rootCert -FilePath Client\root-ca.cer
 
-$serverIpAddress = "172.18.254.1"
-
 $serverCert = New-SelfSignedCertificate  `
 	-Subject "CN=server,OU=ESF,O=Ingenico,L=Brussels,ST=Belgium,C=BE"  `
 	-DnsName "server" `
